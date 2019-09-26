@@ -1,0 +1,30 @@
+program SQLiteSTDCALL;
+	
+	#include( "stdlib.hhf" )
+	#Include( "sqlite_hla.hhf" )
+	#include( "w32\win32.hhf" )
+
+Label
+	Miron; external;
+	
+	
+static
+	strDB:string:="Pancho.db";
+	ptrDB:SQLite3.TypDB:=NULL;
+	strConsulta:string:="CREATE TABLE prueba2 ( texto TEXT, numero INTEGER, real REAL);";	
+	strConsultaIns:string:="INSERT INTO prueba2 VALUES(""hola"",23, 43.2 );";
+	
+begin SQLiteSTDCALL;
+	
+	Miron : 
+	//----------------------------------------
+	w.MessageBox(NULL, SQLite3.libversion(), "SQLiteTes",w.MB_OK);
+	
+	SQLite3.open( strDB, ptrDB , SQLite3.SQLITE_OPENCREATE_READWRITE, NULL);
+	
+	SQLite3.exec( ptrDB, strConsulta, NULL, NULL, NULL );
+	SQLite3.exec( ptrDB, strConsultaIns, NULL, NULL, NULL );
+		 
+	SQLite3.close( ptrDB );
+	 	
+end SQLiteSTDCALL;

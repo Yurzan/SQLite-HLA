@@ -1,0 +1,47 @@
+
+[HPR Settings]
+Project Version=10
+options=00000040
+tab=4
+backups=3
+usetemp=false
+useunits=true
+useback=false
+mainfile=src\SQLiteSTDCALL.hla
+findscope=00000001
+findflags=00000000
+
+[HPR Jobs]
+SQLiteSTDCALL
+
+[SQLiteSTDCALL.files]
+SQLiteSTDCALL.hla,src,hlaprogram
+SQLite_HLA.hhf,src,include
+
+[SQLiteSTDCALL.extlinked]
+kernel32.lib
+user32.lib
+hlalib.lib
+hidelib.lib
+sqlite3.lib
+
+[SQLiteSTDCALL]
+console=true
+output=SQLiteSTDCALL.exe
+type=program
+main=SQLiteSTDCALL.hla
+debug=true
+
+[SQLiteSTDCALL.link]
+-heap:0xF4240,0xF4240
+-stack:0xF4240,0xF4240
+-base:0x4000000
+-entry:HLAMain
+-section:.data,RW
+-section:.text,ER
+-machine:ix86
+
+
+[HPR Folders]
+units
+src
